@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>AppAchhi Compliant Appium Test Scripts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="vendor/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="vendor/prettify.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen, print">
+  <link href="img/favicon.ico" rel="icon" type="image/x-icon">
+  <script src="vendor/jquery-3.3.1.min.js"></script>
+  <script src="vendor/polyfill.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <header class="main-header">
+            <div class="logo-container">
+                <img src="https://pub.appachhi.net/img/logo.png" style="">
+                <span class="label label-primary label-documentation">Documentation</span>
+            </div>
+        </header>
+        <div class="row main-body">
+          <h2 class="article-header">JENKINS INTEGRATION</h2>
+          <section class="right-nav col-md-3 text-center">
+              <div class="right-nav-container">
+                  <h5 class="content-header">On this page</h5>
+                  <p class="section-one">Aim</p>
+                  <p class="section-two">Libraries</p>
+                  <p class="section-three">Jenkins Setup</p>
+                  <p class="section-four">Appachhi CLI</p>
+                  <p class="section-five">testPlanConfig.json Templates</p>
+                  <p class="section-six">testPlanConfig.json Skeleton</p>
+              </div>
+          </section>
+          <section class="col-md-9 text-center main-content pull-right">
+              <div id="main-col-body" class="text-left">
+                  <div class="row steps one">
+                      <h3 id="test-types-android-appium-java-testng-what-is">Aim :</h3>
+                      <p>This document will help you in setting up and configuring the Appachhi CLI in jenkins environment.</p>
+                  </div>
+                  <div class="row steps two">
+                      <h3 id="test-types-android-appium-java-testng-version-information">Libraries :</h3>
+                  </div>
+                  <div class="row">
+                      <p>1: <span>PHP</span></p>
+                      <p>2: <span>CURL</span></p>
+                  </div>
+                  <div class="row steps three">
+                      <h3>Jenkins Setup</h3>
+                            <ol>
+                                <li>Clone Appachhi/appachhi Repository to /var/www/REPO/ from your  Bit-Bucket repo account.</li>
+                                <li>
+                                    <p>Open jenkins.sh shell file under Appachhi/appachhi folder </p>
+                                    <ol type="i">
+                                        <li>In jenkins.sh modify PROJECT_PATH current system project path</li>
+                                        <li>Modify user API KEY value in php execution line. Get API KEY value from platform.</li>
+                                        <li>Modify remaining parameters like --test-zip and build path accordingly.</li>
+                                    </ol>
+                                </li>
+                                <li> After modifying jenkins.sh file. Add jenkins.sh file in jenkins job scheduler.</li>
+                            </ol>
+                  </div>
+                  <div class="row steps four">
+                      <h3>Appachhi CLI</h3>
+                      <table class="cli-table">
+                          <tr>
+                              <th>OPTIONS</th>
+                              <th>DESCRIPTION</th>
+                          </tr>
+                          <tr>
+                              <td>-0 (OR) --operation</td>
+                              <td>
+                                <p>Operation to be performed.</p>
+                                <ol>
+                                    <li>launch: Create the TestPlan</li>
+                                    <li>getreport: Get the TestPlan Report Status(Pass/Fail)</li>
+                                </ol>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>-t (OR) --testrun-id</td>
+                              <td>Launch testrun based on testrun id</td>
+                          </tr>
+                          <tr>
+                              <td>-f (OR) --test-config</td>
+                              <td>Launch testrun using testPlanConfig.json file</td>
+                          </tr>
+                          <tr>
+                              <td>--report-id</td>
+                              <td>To get report stats</td>
+                          </tr>
+                          <tr>
+                              <td>--key</td>
+                              <td>User api key to access platform</td>
+                          </tr>
+                          <tr>
+                              <td>--test-zip</td>
+                              <td>Tes Zip file path to upload to platform</td>
+                          </tr>
+                          <tr>
+                              <td>-b (OR) --build</td>
+                              <td>App build path to upload to platform</td>
+                          </tr>
+                          <tr>
+                              <td>--disable-log</td>
+                              <td>Disable log messages from terminal</td>
+                          </tr>
+                          <tr>
+                              <td>-h (OR) --help</td>
+                              <td>Display help</td>
+                          </tr>
+                      </table>
+                  </div>
+                  <div class="row steps five">
+                      <h3>testPlanConfig.json Templates</h3>
+                      <ol>
+                          <li>
+                              <p class="collapsible">Android App <span>+</span></p>
+                              <pre class="content">
+                                {  
+                                   "testplan":{  
+                                      "testplanName":"AppachhiApp",
+                                      "is_global":1
+                                   },
+                                   "build":{  
+                                      "buildName":"AppachhiAppBuild",
+                                      "buildId":"0"
+                                   },
+                                   "app":{  
+                                      "appName":"Appachhi",
+                                      "platform":"Android",
+                                      "platformType":"Apps"
+                                   },
+                                   "network":[  
+                                      {  
+                                         "networkName":"WiFi"
+                                      }
+                                   ],
+                                   "carrier":[  
+                                      {  
+                                         "carrierName":"None"
+                                      }
+                                   ],
+                                   "condition":[  
+                                      {  
+                                         "label":"None",
+                                         "settings":"{}"
+                                      }
+                                   ],
+                                   "device":[  
+                                      {  
+                                         "name":"samsung-SM-N900"
+                                      },
+                                      {  
+                                         "name":"samsung-GT-I9300"
+                                      }
+                                   ],
+                                   "deviceFarm":{
+                                      "name":"SIGNUP-BOX1"
+                                   },
+                                   "testsuite":{
+                                      "framework":"Appium",
+                                      "zipFile":"1022420180430220627.zip",
+                                      "testSuiteName":"/src/test/resources/test-suites/testng",
+                                      "fileVersion":"LocalTestdroidAppiumZip",
+                                      "xmlPath":"Prod_Android_V7\/TestSuites\/mobile\/Android\/apps",
+                                      "is_auto_update_tests":0,
+                                      "refresh_dependencies":0,
+                                      "is_parallel_run":0,
+                                      "custom_params":"",
+                                      "is_custom_test":0,
+                                      "is_install_launch":0,
+                                      "is_performance":0,
+                                      "groups":[],
+                                      "max_parallel_run":0,
+                                      "is_bot_flows":0
+                                   },
+                                    "tests":[  
+                                      { 
+                                         "testName":"appachhitest 1",
+                                         "className":"com.appachhi.scenarios.login",
+                                         "methodName":"checkLogin"
+                                      },
+                                      { 
+                                         "testName":"appachhitest 1",
+                                         "className":"com.appachhi.scenarios.logout",
+                                         "methodName":"checkLogout"
+                                      }
+                                   ]
+                                }
+                                androidAppTestPlanConfig.json
+                                Displaying androidAppTestPlanConfig.json.</pre>
+                          </li>
+                          <li>
+                              <p class="collapsible">Android mWeb <span>+</span></p>
+                              <pre class="content">  
+                                {  
+                                   "testplan":{  
+                                      "testplanName":"appachhiMweb",
+                                      "is_global":1
+                                   },
+                                   "build":{  
+                                      "buildName":"appachhiMwebbBuild",
+                                      "buildId":"0"
+                                   },
+                                   "app":{  
+                                      "appName":"https://www.appachhi.com",
+                                      "platform":"Android",
+                                      "platformType":"MOBILEWEB"
+                                   },
+                                   "browser":[  
+                                      {  
+                                         "browserName":"chrome"
+                                      }
+                                   ],
+                                   "network":[  
+                                      {  
+                                         "networkName":"WiFi"
+                                      }
+                                   ],
+                                   "carrier":[  
+                                      {  
+                                         "carrierName":"None"
+                                      }
+                                   ],
+                                   "condition":[  
+                                      {  
+                                         "label":"1366 x 768",
+                                         "settings":"{}"
+                                      }
+                                   ],
+                                   "device":[  
+                                      {  
+                                         "name":"samsung-SM-N900"
+                                      },
+                                      {  
+                                         "name":"samsung-GT-I9300"
+                                      }
+                                   ],
+                                   "deviceFarm":{
+                                      "name":"SIGNUP-BOX1"
+                                   },
+                                   "testsuite":{
+                                      "framework":"Appium",
+                                      "gitRepoSetting":{
+                                         "url":"",
+                                         "userName":"",
+                                         "password":"",
+                                         "projectName":"bitbuckettestsuite",
+                                         "branchName":"B_API_TESTSUITE",
+                                         "commitId":"ec5c9d66e10d3ef1aa54b100fbf29dcae57fc2be"
+                                      },
+                                      "zipFile":"1022420180430220627.zip",
+                                      "testSuiteName":"/TestSuites/web/Sanity_FF_7",
+                                      "fileVersion":"LocalTestdroidAppiumZip",
+                                      "xmlPath":"Prod_Android_V7\/TestSuites\/mobile\/Android\/apps",
+                                      "is_auto_update_tests":0,
+                                      "refresh_dependencies":0,
+                                      "is_parallel_run":0,
+                                      "custom_params":"",
+                                      "is_custom_test":0,
+                                      "is_install_launch":0,
+                                      "is_performance":0,
+                                      "groups":[],
+                                      "max_parallel_run":0,
+                                      "is_bot_flows":0
+                                   },
+                                    "tests":[  
+                                      { 
+                                         "testName":"appachhitest 1",
+                                         "className":"com.appachhi.scenarios.login",
+                                         "methodName":"checkLogin"
+                                      },
+                                      { 
+                                         "testName":"appachhitest 1",
+                                         "className":"com.appachhi.scenarios.logout",
+                                         "methodName":"checkLogout"
+                                      }
+                                   ]
+                                }
+                                androidMwebTestPlanConfig.json
+                                Displaying androidMwebTestPlanConfig.json.
+                              </pre>
+                          </li>
+                          <li>
+                              <p class="collapsible">iOS App <span>+</span></p>
+                              <pre class="content">  
+                                {  
+                                   "testplan":{  
+                                      "testplanName":"appachhiApp",
+                                      "is_global":1
+                                   },
+                                   "build":{  
+                                      "buildName":"AppachhiAppBuild",
+                                      "buildId":"0"
+                                   },
+                                   "app":{  
+                                      "appName":"Appachhi",
+                                      "platform":"iOS",
+                                      "platformType":"Apps"
+                                   },
+                                   "network":[  
+                                      {  
+                                         "networkName":"WiFi"
+                                      }
+                                   ],
+                                   "carrier":[  
+                                      {  
+                                         "carrierName":"None"
+                                      }
+                                   ],
+                                   "condition":[  
+                                      {  
+                                         "label":"1366 x 768",
+                                         "settings":"{}"
+                                      }
+                                   ],
+                                   "device":[  
+                                      {  
+                                         "name":"iPhone 8"
+                                      },
+                                      {  
+                                         "name":"iPhone 5s"
+                                      }
+                                   ],
+                                   "deviceFarm":{
+                                      "name":"iOS Appium Playback"
+                                   },
+                                   "testsuite":{
+                                      "framework":"Appium",
+                                      "gitRepoSetting":{
+                                         "url":"",
+                                         "userName":"",
+                                         "password":"",
+                                         "projectName":"bitbuckettestsuite",
+                                         "branchName":"B_API_TESTSUITE",
+                                         "commitId":"ec5c9d66e10d3ef1aa54b100fbf29dcae57fc2be"
+                                      },
+                                      "zipFile":"1022420180430220627.zip",
+                                      "testSuiteName":"/TestSuites/web/Sanity_FF_7",
+                                      "fileVersion":"LocalTestdroidAppiumZip",
+                                      "xmlPath":"Prod_Android_V7\/TestSuites\/mobile\/Android\/apps",
+                                      "is_auto_update_tests":0,
+                                      "refresh_dependencies":0,
+                                      "is_parallel_run":0,
+                                      "custom_params":"",
+                                      "is_custom_test":0,
+                                      "is_install_launch":0,
+                                      "is_performance":0,
+                                      "groups":[],
+                                      "max_parallel_run":0,
+                                      "is_bot_flows":0
+                                   },
+                                    "tests":[  
+                                      { 
+                                         "testName":"appachhitest 1",
+                                         "className":"com.appachhi.scenarios.login",
+                                         "methodName":"checkLogin"
+                                      },
+                                      { 
+                                         "testName":"appachhitest 1",
+                                         "className":"com.appachhi.scenarios.logout",
+                                         "methodName":"checkLogout"
+                                      }
+                                   ]
+                                }
+                                iOSAppTestplanConfig.json
+                                Displaying iOSAppTestplanConfig.json.
+                              </pre>
+                          </li>
+                          <li>
+                              <p class="collapsible">iOS mWeb <span>+</span></p>
+                              <pre class="content">
+                                  {  
+                                   "testplan":{  
+                                      "testplanName":"appachhiApp",
+                                      "is_global":1
+                                   },
+                                   "build":{  
+                                      "buildName":"appachhiAppBuild",
+                                      "buildId":"0"
+                                   },
+                                   "app":{  
+                                      "appName":"https://www.appachhi.com",
+                                      "platform":"iOS",
+                                      "platformType":"mobileweb"
+                                   },
+                                   "browser":[  
+                                      {  
+                                         "browserName":"safari"
+                                      }
+                                   ],
+                                   "network":[  
+                                      {  
+                                         "networkName":"WiFi"
+                                      }
+                                   ],
+                                   "carrier":[  
+                                      {  
+                                         "carrierName":"None"
+                                      }
+                                   ],
+                                   "condition":[  
+                                      {  
+                                         "label":"1366 x 768",
+                                         "settings":"{}"
+                                      }
+                                   ],
+                                   "device":[  
+                                      {  
+                                         "name":"iPhone 8"
+                                      },
+                                      {  
+                                         "name":"iPhone 5s"
+                                      }
+                                   ],
+                                   "deviceFarm":{
+                                      "name":"iOS Appium Playback"
+                                   },
+                                   "testsuite":{
+                                      "framework":"Appium",
+                                      "gitRepoSetting":{
+                                         "url":"",
+                                         "userName":"",
+                                         "password":"",
+                                         "projectName":"bitbuckettestsuite",
+                                         "branchName":"B_API_TESTSUITE",
+                                         "commitId":"ec5c9d66e10d3ef1aa54b100fbf29dcae57fc2be"
+                                      },
+                                      "zipFile":"1022420180430220627.zip",
+                                      "testSuiteName":"/TestSuites/web/Sanity_FF_7",
+                                      "fileVersion":"LocalTestdroidAppiumZip",
+                                      "xmlPath":"Prod_Android_V7\/TestSuites\/mobile\/Android\/apps",
+                                      "is_auto_update_tests":0,
+                                      "refresh_dependencies":0,
+                                      "is_parallel_run":0,
+                                      "custom_params":"",
+                                      "is_custom_test":0,
+                                      "is_install_launch":0,
+                                      "is_performance":0,
+                                      "groups":[],
+                                      "max_parallel_run":0,
+                                      "is_bot_flows":0
+                                   },
+                                    "tests":[  
+                                      { 
+                                         "testName":"appachhitest 1",
+                                         "className":"com.appachhi.scenarios.login",
+                                         "methodName":"checkLogin"
+                                      },
+                                      { 
+                                         "testName":"appachhitest 1",
+                                         "className":"com.appachhi.scenarios.logout",
+                                         "methodName":"checkLogout"
+                                      }
+                                   ]
+                                }
+                              </pre>
+                          </li>
+                          <li>
+                              <p class="collapsible">API <span>+</span></p>
+                              <pre class="content">
+                                 {  
+                                   "testplan":{  
+                                      "testplanName":"appachhiAPI"
+                                   },
+                                   "build":{  
+                                      "buildName":"appachhiAPIBUILD",
+                                      "buildId":"0"
+                                   },
+                                   "app":{  
+                                      "appName":"www.appachhi.com",
+                                      "platform":"API",
+                                      "platformType":"API"
+                                   },
+                                   "network":[  
+                                      {  
+                                         "networkName":"WiFi"
+                                      }
+                                   ],
+                                   "carrier":[  
+                                      {  
+                                         "carrierName":"None"
+                                      }
+                                   ],
+                                   "condition":[  
+                                      {  
+                                         "label":"None",
+                                         "settings":"{}"
+                                      }
+                                   ],
+                                   "browser":[  
+                                      {  
+                                         "browserName":"None"
+                                      }
+                                   ],"device":[{}],
+                                   "deviceFarm":[{}],
+                                   "testsuite":{
+                                      "framework":"Appium",
+                                      "zipFile":"1022420180430220627.zip",
+                                      "testSuiteName":"/src/test/resources/test-suites/testng",
+                                      "fileVersion":"LocalTestdroidAppiumZip",
+                                      "xmlPath":"Prod_Android_V7\/TestSuites\/mobile\/Android\/apps",
+                                      "is_auto_update_tests":0,
+                                      "is_parallel_run":1,
+                                      "custom_params":"",
+                                      "is_custom_test":"0",
+                                      "is_install_launch":0,
+                                      "is_performance":0,
+                                      "max_parallel_run":5,
+                                      "is_bot_flows":0
+                                   },
+                                   "tests":[  
+                                      { 
+                                         "testName":"Test Scenario2",
+                                         "className":"com.myntra.scenarios.CCDCTest",
+                                         "methodName":"checkDeliveryOptionAddProductToCartPlaceOrderApplyCouponAddNewAddressOfficePayUsingCreditDebitCard"
+                                      },
+                                      { 
+                                         "testName":"Test Scenario2",
+                                         "className":"com.myntra.scenarios.CCDCTest",
+                                         "methodName":"addToBagSizeQuantityInCartVerifyFreeGiftViewDetailsPayUsingCreditCard"
+                                      }
+                                   ]
+                                } 
+                              </pre>
+                          </li>
+                          <li>
+                              <p class="collapsible">Desktop Web <span>+</span></p>
+                              <pre class="content">   
+                                   "testplan":{  
+                                      "testplanName":"APPACHHICLI",
+                                      "is_global":1
+                                   },
+                                   "build":{  
+                                      "buildName":"APPACHHICLIBUILD",
+                                      "buildId":"0"
+                                   },
+                                   "app":{  
+                                      "appName":"www.appachhi.com",
+                                      "platform":"Desktop",
+                                      "platformType":"Web"
+                                   },
+                                   "network":[  
+                                      {  
+                                         "networkName":"WiFi"
+                                      }
+                                   ],
+                                   "carrier":[  
+                                      {  
+                                         "carrierName":"None"
+                                      }
+                                   ],
+                                   "condition":[  
+                                      {  
+                                         "label":"1366 x 768",
+                                         "settings":"{}"
+                                      }
+                                   ],
+                                   "system":[  
+                                      { 
+                                         "systemName":"OSX",
+                                         "version":"10.13",
+                                         "browsers":[{
+                                            "browserName":"Chrome",
+                                            "version":"11"
+
+                                         }]
+                                      },
+                                      { 
+                                         "systemName":"Windows",
+                                         "version":"10",
+                                         "browsers":[{
+                                            "browserName":"Chrome",
+                                            "version":"64"
+
+                                         }]
+                                      }
+                                   ],
+                                   "deviceFarm":{
+                                      "name":"DesktopWeb Farm"
+                                   },
+                                   "testsuite":{
+                                      "framework":"Appium",
+                                      "zipFile":"appachhi.zip",
+                                      "testSuiteName":"/src/test/resources/test-suites/testng",
+                                      "fileVersion":"LocalTestdroidAppiumZip",
+                                      "xmlPath":"Prod_Android_V7\/TestSuites\/mobile\/Android\/apps",
+                                      "is_auto_update_tests":0,
+                                      "is_parallel_run":0,
+                                      "custom_params":"",
+                                      "is_custom_test":1,
+                                      "is_install_launch":0,
+                                      "is_performance":0,
+                                      "max_parallel_run":0,
+                                      "is_bot_flows":0,
+                                      "groups":[]
+                                   },
+                                   "tests":[  
+                                      { 
+                                         "testName":"appachhitest 1",
+                                         "className":"com.appachhi.scenarios.login",
+                                         "methodName":"checkLogin"
+                                      },
+                                      { 
+                                         "testName":"appachhitest 1",
+                                         "className":"com.appachhi.scenarios.logout",
+                                         "methodName":"checkLogout"
+                                      }
+                                   ]
+                                }
+                              </pre>
+                          </li>
+                      </ol>
+                  </div>
+                  <div class="row steps six">
+                    <h3>testPlanConfig.json Skeleton</h3>
+                    <ol>
+                        <li>
+                            <p>Testplan</p>
+                            <ol type="a">
+                                <li><span>testplanName :</span> Provide the name of the TestPlan.</li>
+                                <li><span>is_global :</span> Using is_global we can define this TestPlan public or private (1 or 0)</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <p>Build</p>
+                            <ol type="a">
+                                <li><span>buildname :</span> Provide build Name of the app</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <p>App</p>
+                            <ol type="a">
+                                <li><span>appname :</span> Provide appName</li>
+                                <li><span>Platform :</span> Provide platform name <span>(iOS,Android,API,Desktop)</span></li>
+                                <li><span>PlatformType :</span> Provide platformType <span>(Apps,MobileWeb,API,Web)</span></li>
+                            </ol>
+                        </li>
+                        <li>
+                            <p>browser (Only for Mobile Web)</p>
+                            <ol type="a">
+                                <li><span>browserName :</span> Mobile Web browser name (Chrome,Safari)</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <p>Network</p>
+                            <ol type="a">
+                                <li><span>networkName :</span> Network switching (WIFI)</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <p>Carrier</p>
+                            <ol type="a">
+                                <li><span>carrierName :</span> Provide carrier name</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <p>Device</p>
+                            <ol type="a">
+                                <li><span>Name :</span> Mobile device name. It should same as mentioned in the platform device names</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <p>DeviceFarm</p>
+                            <li><span>Name :</span> Provide deviceFarm name, Based on deviceFarm name test will execute on particular deviceFarm</li>
+                        </li>
+                    </ol>
+                  </div>
+                </div>
+          </section>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+$(document).ready(function(){
+    window.onscroll = function() {
+        stickyNav()
+    };
+    var header = document.getElementsByClassName("right-nav");
+    var sticky = $(header).outerHeight(true);
+    function stickyNav() {
+        if (window.pageYOffset > sticky-100) {
+            $('.right-nav').addClass("sticky");
+        } else {
+            $('.right-nav').removeClass("sticky");
+        }
+    };
+
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      console.log($(this).children().text('+'));
+    } else {
+      content.style.display = "block";
+      console.log($(this).children().text('-'));
+    }
+  });
+}
+
+    $(".right-nav-container p").click(function() {
+        $('.right-nav-container p').removeAttr('id');
+        $(this).attr('id','selectedNav');
+    var selected = $(this).attr("class").split("-")[1];
+    $('html,body').animate({
+        scrollTop: $("."+selected).offset().top},
+        'slow');
+    })
+});
+</script>
+</html>

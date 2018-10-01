@@ -1,0 +1,122 @@
+body{
+    font-family: 'Lato', sans-serif !important;
+}
+.logo-container {
+    padding-left: 5%;
+    padding-top: 18px;
+    position: relative;
+}
+.logo-container img{
+    display: inline;
+}
+.label-documentation{
+    position: relative;
+    left: 5px;
+}
+.main-header {
+    height: 68px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: #e6e6e6 0 1px 3px;
+    -webkit-box-shadow: #e6e6e6 0 1px 3px;
+    box-shadow: #e6e6e6 0 1px 3px;
+    z-index: 6000;
+}
+.article-header {
+  padding-left: 50px;
+  color: #6792e6;
+  font-weight: 600;
+}
+#main-col-body {
+    padding: 0px;
+}
+#main-col-body h3{
+  color: #6792e6;
+  font-weight: 600;
+}
+.code-space{
+  background: #e8e6e6;
+  padding: 10px;
+  border-radius: 4px;
+}
+.code-space code{
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #3a3a3a;
+}
+#main-col-body h4{
+  padding: 6px;
+  padding-left: 0;
+  color: #6792e6;
+}
+#main-col-body li{
+  padding: 5px;
+}
+#main-col-body img{
+  padding-bottom: 10px;
+}
+.main-header h4 {
+    display: inline;
+}
+.main-body {
+    margin-top: 30px;
+    max-width: 100%;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#selectedNav {
+    color: #6792e6;
+}
+.sticky {
+    position: fixed;
+    top: 4px;
+}
+.right-nav-container {
+  margin: 20px 25px;
+  padding: 15px;
+  background: #f7f7f7;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
+  -moz-box-shadow: #e6e6e6 0 1px 3px;
+  -webkit-box-shadow: #e6e6e6 0 1px 3px;
+}
+.right-nav-container span{
+    padding-left: 5px;
+}
+
+.right-nav-container p {
+    padding-left: 15px;
+    cursor: pointer;
+}
+.content-header{
+  padding: 0;
+  font-weight: 600;
+}
+.main-content {
+  padding-top: 25px;
+}
+.cli-table td, .cli-table th{
+  border: 1px solid #a5a2a2;
+  padding: 4px;
+}
+p.collapsible {
+  cursor: pointer;
+}
+pre.content {
+  display: none;
+}
+
+.collapsible span{
+    border-radius: 4px;
+    line-height: 18px;
+    color: black;
+    background: #bbb6b6;
+    width: 16px;
+    display: inline-block;
+    text-align: center;
+}

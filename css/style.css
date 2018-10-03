@@ -53,7 +53,7 @@ body{
   color: #6792e6;
 }
 #main-col-body li{
-  padding: 5px;
+  padding: 2px;
 }
 #main-col-body img{
   padding-bottom: 10px;
@@ -119,4 +119,39 @@ pre.content {
     width: 16px;
     display: inline-block;
     text-align: center;
+}
+#jenkins-api-key-btn {
+    background: #6792e6;
+    color: white;
+    border-radius: 8px;
+    border: 1px solid;
+    padding: 10px 5px;
+    width: 80%;
+    font-size: 16px;
+    font-weight: bolder;
+    outline: none;
+}
+.jenkins-api-key-container {
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 8px !important;
+    font-size: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 92%;
+    margin: auto;
+}
+.jenkins-api-key-container p{
+    margin-bottom: 0;
+    overflow: hidden;
+    padding-left: 4px;
+    padding-right: 0px;
+}
+.jenkins-api-key-container div{
+  padding: 0;
+  margin-top: -2px;
+  cursor: pointer;
 }

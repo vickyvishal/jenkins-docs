@@ -10,7 +10,6 @@
   <link href="css/style.css" rel="stylesheet" media="screen, print">
   <link href="img/favicon.ico" rel="icon" type="image/x-icon">
   <script src="vendor/jquery-3.3.1.min.js"></script>
-  <script src="vendor/polyfill.js"></script>
 </head>
 <body>
     <div class="main-container">
@@ -682,8 +681,9 @@
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
-    $('[data-toggle="popover"]').popover();
-
+    setTimeout(function() {
+        $('[data-toggle="popover"]').popover(); 
+    }, 10);
     window.onscroll = function() {
         stickyNav()
     };
@@ -729,16 +729,17 @@ $(document).ready(function(){
         $temp.val($('#jenkins-api-key').text()).select();
         document.execCommand("copy");
         $temp.remove();
+        $('[data-toggle="tooltip"]').tooltip({ trigger: 'click' });
     });
 
 
     $(".right-nav-container p").click(function() {
         $('.right-nav-container p').removeAttr('id');
         $(this).attr('id','selectedNav');
-    var selected = $(this).attr("class").split("-")[1];
-    $('html,body').animate({
-        scrollTop: $("."+selected).offset().top},
-        'slow');
+        var selected = $(this).attr("class").split("-")[1];
+         $('html,body').animate({
+            scrollTop: $("."+selected).offset().top},
+            'slow');
     })
 });
 </script>
